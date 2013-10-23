@@ -13,6 +13,8 @@
     "domready": "~0.2.13",
     "domify": "~1.0.0",
     "underscore": "~1.5.2",
-    "mustache": "~0.7.2"
+    "mustache": "~0.7.2",
+    "dom-delegate": "~0.3.2",
+    "dope": "~2.2.1"
   }
 }
