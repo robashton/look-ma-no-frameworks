@@ -10,6 +10,8 @@ function Dropdown(name, element, data) {
   this.element = element
   this.name = name
 
+  // GASP - we can use Knockout if we want to
+  // Just keep it internal to the presenter
   this.values = ko.observableArray(this.data)
   this.selectedValue = ko.observable()
   this.render()

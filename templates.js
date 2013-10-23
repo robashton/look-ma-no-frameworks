@@ -1,7 +1,7 @@
 module.exports = {
   customers: ["<table>",
-              "{{#customers}}",
+              "{{#activecustomers}}",
               '<tr class="customer" data-customer="{{name}}"><td>{{name}}</td><td>{{bank}}</td></tr>',
-              "{{/customers}}",
+              "{{/activecustomers}}",
               "</table>"].join("\n"),
 }
