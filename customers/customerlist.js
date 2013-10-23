@@ -1,11 +1,12 @@
-  var templates = require('../templates')
-  , mustache = require('mustache')
+var mustache = require('mustache')
   , Delegate = require('dom-delegate')
   , dope = require('dope')
   , _ = require('underscore')
+  , fs = require('fs')
 
 function CustomerList(element, customers) {
   this.element = element
+  this.template = fs.readFileSync(__dirname + "/customerlist.html")
   this.customers = customers
   this.activecustomers = customers
   this.render()
@@ -15,18 +16,18 @@ function CustomerList(element, customers) {
 
 CustomerList.prototype = {
   render: function() {
-    var self = this
-    this.element.innerHTML = mustache.render(templates.customers, this)
+    this.element.innerHTML = mustache.render(this.template, this)
   },
   onCustomerClicked: function(e, row) {
     alert('Clicked ' + dope.dataset(row).customer)
   },
   filterByBank: function(bank) {
-    if(bank)
-      this.activecustomers = _(this.customers)
-            .filter(function(i) { return i.bank === bank})
-    else
+    if(bank) {
+      this.activecustomers = _(this.customers).filter(function(i) { return i.bank === bank})
+    }
+    else {
       this.activecustomers = this.customers
+    }
     this.render()
   },
   detach: function() {

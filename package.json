@@ -15,6 +15,7 @@
     "underscore": "~1.5.2",
     "mustache": "~0.7.2",
     "dom-delegate": "~0.3.2",
-    "dope": "~2.2.1"
+    "dope": "~2.2.1",
+    "brfs": "0.0.8"
   }
 }
