@@ -31,7 +31,7 @@ CustomerList.prototype = {
     this.render()
   },
   detach: function() {
-
+    this.delegate.destroy()
   }
 }
 
