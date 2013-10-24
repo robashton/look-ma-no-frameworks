@@ -16,4 +16,12 @@
 - The root presenter will call detatch and that will bubble down
 - A routing engine would be responsible for switching top level presenters
 
-This is backbone-ish, but without backbone. The gist being that most of the time you don't need any of that.
+
+# Some more info
+
+- This is backbone-ish, but without backbone. The gist being that most of the time you don't that
+
+- WRT rendering, it does things in a few different ways across the project, this is to demonstrate options
+- Obviously you'd usually render from the top level presenter to a detached fragment and then add event handlers
+
+- If you want two-way data binding, then you do that within a presenter with whatever library and raise domain-specific events
