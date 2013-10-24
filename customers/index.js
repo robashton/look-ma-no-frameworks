@@ -2,14 +2,15 @@ var testdata = require('../testdata')
   , Dropdown = require('../dropdown')
   , CustomerList = require('./customerlist')
 
-var Page = function(element) {
+var Index = function(element) {
   this.element = element
+  this.element.innerHTML = document.getElementById('customer-list-template').innerHTML
   this.banks = new Dropdown('banks', this.element.getElementsByClassName('bank-container')[0], testdata.banks)
   this.customers = new CustomerList(this.element.getElementsByClassName('customer-container')[0], testdata.customers)
   this.banks.on('changed', this.onBankChanged.bind(this))
 }
 
-Page.prototype = {
+Index.prototype = {
   detach: function() {
     this.banks.detach()
   },
@@ -18,4 +19,4 @@ Page.prototype = {
   }
 }
 
-module.exports = Page
+module.exports = Index

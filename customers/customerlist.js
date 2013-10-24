@@ -1,5 +1,6 @@
 var mustache = require('mustache')
   , Delegate = require('dom-delegate')
+  , navigation = require('../navigation')
   , dope = require('dope')
   , _ = require('underscore')
   , fs = require('fs')
@@ -19,7 +20,8 @@ CustomerList.prototype = {
     this.element.innerHTML = mustache.render(this.template, this)
   },
   onCustomerClicked: function(e, row) {
-    alert('Clicked ' + dope.dataset(row).customer)
+    navigation.update("/customer/" + dope.dataset(row).customer,
+      {trigger: true})
   },
   filterByBank: function(bank) {
     if(bank) {

@@ -1,17 +1,30 @@
 var domready = require('domready')
-  , Page = require('./customers/page')
+  , CustomerList = require('./customers/index')
+  , CustomerView = require('./customers/view')
+  , routing = require('./navigation')
+  , container = null
+  , currentPage = null
 
 function run(){
-  var container = document.getElementById('container')
+  container = document.getElementById('container')
 
-  // Routing goes here
-  // Create a page around the current route
-  // and detach when we change to a new page
-  var subContainer = document.createElement('div')
-  var page = new Page(subContainer)
-  container.appendChild(subContainer)
+  routing.route(/^customer\/(.+)/, function(path) {
+    switchTo(CustomerView, { name: path.split('/')[1] })
+  })
+
+  routing.route(/^$/, function() {
+    switchTo(CustomerList)
+  })
+
+  routing.start({
+    pushState: true
+  })
 }
 
+function switchTo(Presenter, options) {
+  if(currentPage) currentPage.detach()
+  currentPage = new Presenter(container, options)
+}
 
 domready(run)
 
