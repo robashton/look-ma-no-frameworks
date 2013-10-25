@@ -20,8 +20,7 @@
 # Some more info
 
 - This is backbone-ish, but without backbone. The gist being that most of the time you don't that
-
 - WRT rendering, it does things in a few different ways across the project, this is to demonstrate options
 - Obviously you'd usually render from the top level presenter to a detached fragment and then add event handlers
-
 - If you want two-way data binding, then you do that within a presenter with whatever library and raise domain-specific events
+- I'd probably not use Knockout myself, but it's there to prove a point.
